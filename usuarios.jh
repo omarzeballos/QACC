@@ -1,0 +1,126 @@
+entity UsrUsuario {
+	idUsuario Long required,
+    cuenta String required,
+    clave String required,
+    estado Estado required,
+    opeusr String required,
+    opefecha Instant required,
+    opeope String required
+}
+
+entity AutPerfil {
+	idPerfil Long required,
+    nombre String required,
+    estado Estado required,
+    opeusr String required,
+    opefecha Instant required,
+    opeope String required
+}
+
+entity AutRol {
+	idRol Long required,
+	nombre String required,
+    estado Estado required,
+    opeusr String required,
+    opefecha Instant required,
+    opeope String required
+}
+
+entity AutModulo {
+	idModulo Long required,
+	nombre String required,
+    abreviacion String required,
+    estado Estado required,
+    opeusr String required,
+    opefecha Instant required,
+    opeope String required   
+}
+
+entity AutRecursoDominio{
+	idRecurso Long required,
+    nombre String required,
+    estado Estado required,
+ 	opeusr String required,
+    opefecha Instant required,
+    opeope String required
+}
+entity AutRecurso {
+	idRecurso Long required,
+    idRecursoDominio Long required,
+	idRecursoPadre Long,
+    idModulo Long required,
+	nombre String required,
+    estado Estado required,
+    opeusr String required,
+    opefecha Instant required,
+    opeope String required   
+}
+relationship ManyToOne {
+	AutRecurso{idRecursoDominio} to AutRecursoDominio,
+	AutRecurso{idRecursoPadre} to AutRecurso,
+	AutRecurso{idModulo} to AutModulo
+}
+
+entity AutPerfilRol {
+	idPerfil Long required,
+	idRol Long required,
+    opeusr String required,
+    opefecha Instant required,
+    opeope String required
+}
+relationship ManyToOne {
+    AutPerfilRol{idPerfil} to AutPerfil
+    AutPerfilRol{idRol} to AutRol
+}
+
+entity AutRolRecurso {
+	idRol Long required,
+	idRecurso Long required,
+    opeusr String required,
+    opefecha Instant required,
+    opeope String required
+}
+relationship ManyToOne {
+    AutRolRecurso{idRol} to AutRol
+    AutRolRecurso{idRecurso} to AutRecurso
+}
+
+entity AutUsuarioRol {
+	idUsuario Long required,
+	idRol Long required,
+    opeusr String required,
+    opefecha Instant required,
+    opeope String required
+}
+relationship ManyToOne {
+    AutUsuarioRol{idUsuario} to UsrUsuario
+    AutUsuarioRol{idRol} to AutRol
+}
+entity AutUsuarioModulo {
+	idUsuario Long required,
+	idModulo Long required,
+    opeusr String required,
+    opefecha Instant required,
+    opeope String required
+}
+relationship ManyToOne {
+    AutUsuarioModulo{idUsuario} to UsrUsuario
+    AutUsuarioModulo{idModulo} to AutModulo
+}
+enum Estado {
+    ACTIVO, INACTIVO, SUSPEN
+}
+/**
+ * The Employee entity.-----------------------------------------------
+ */
+
+// Set pagination options
+paginate AutRecurso, UsrUsuario with infinite-scroll
+paginate AutPerfil, AutRol, AutModulo with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+//service all with serviceImpl except Employee, Job
+// Set an angular suffix
+angularSuffix * with qanteros
