@@ -1,0 +1,100 @@
+{
+    "name": "AutRecurso",
+    "fields": [
+        {
+            "fieldName": "idRecurso",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "idRecursoDominio",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "idRecursoPadre",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "idModulo",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "estado",
+            "fieldType": "Estado",
+            "fieldValues": "ACTIVO,INACTIVO,SUSPEN",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "opeusr",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "opefecha",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "opeope",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "autRecursoDominio",
+            "otherEntityRelationshipName": "autRecurso",
+            "relationshipName": "idRecursoDominio",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "autRecurso",
+            "otherEntityRelationshipName": "autRecurso",
+            "relationshipName": "idRecursoPadre",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "autModulo",
+            "otherEntityRelationshipName": "autRecurso",
+            "relationshipName": "idModulo",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190710062546",
+    "entityTableName": "aut_recurso",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "QACC",
+    "applications": "*",
+    "angularJSSuffix": "qanteros",
+    "microserviceName": "QACC"
+}

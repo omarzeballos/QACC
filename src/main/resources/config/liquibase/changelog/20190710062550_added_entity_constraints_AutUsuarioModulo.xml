@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity AutUsuarioModulo.
+    -->
+    <changeSet id="20190710062550-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="id_usuario_id"
+                                 baseTableName="aut_usuario_modulo"
+                                 constraintName="fk_aut_usuario_modulo_id_usuario_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="usr_usuario"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_modulo_id"
+                                 baseTableName="aut_usuario_modulo"
+                                 constraintName="fk_aut_usuario_modulo_id_modulo_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="aut_modulo"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,67 @@
+{
+    "name": "AutPerfilRol",
+    "fields": [
+        {
+            "fieldName": "idPerfil",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "idRol",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "opeusr",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "opefecha",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "opeope",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "autPerfil",
+            "otherEntityRelationshipName": "autPerfilRol",
+            "relationshipName": "idPerfil",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "autRol",
+            "otherEntityRelationshipName": "autPerfilRol",
+            "relationshipName": "idRol",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190710062547",
+    "entityTableName": "aut_perfil_rol",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "QACC",
+    "applications": "*",
+    "angularJSSuffix": "qanteros",
+    "microserviceName": "QACC"
+}
