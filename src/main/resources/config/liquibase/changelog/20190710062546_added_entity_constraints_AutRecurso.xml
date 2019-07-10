@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity AutRecurso.
+    -->
+    <changeSet id="20190710062546-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="id_recurso_dominio_id"
+                                 baseTableName="aut_recurso"
+                                 constraintName="fk_aut_recurso_id_recurso_dominio_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="aut_recurso_dominio"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_recurso_padre_id"
+                                 baseTableName="aut_recurso"
+                                 constraintName="fk_aut_recurso_id_recurso_padre_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="aut_recurso"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_modulo_id"
+                                 baseTableName="aut_recurso"
+                                 constraintName="fk_aut_recurso_id_modulo_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="aut_modulo"/>
+
+    </changeSet>
+</databaseChangeLog>

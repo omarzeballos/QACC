@@ -1,0 +1,67 @@
+{
+    "name": "AutUsuarioModulo",
+    "fields": [
+        {
+            "fieldName": "idUsuario",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "idModulo",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "opeusr",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "opefecha",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "opeope",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "usrUsuario",
+            "otherEntityRelationshipName": "autUsuarioModulo",
+            "relationshipName": "idUsuario",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "autModulo",
+            "otherEntityRelationshipName": "autUsuarioModulo",
+            "relationshipName": "idModulo",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190710062550",
+    "entityTableName": "aut_usuario_modulo",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "QACC",
+    "applications": "*",
+    "angularJSSuffix": "qanteros",
+    "microserviceName": "QACC"
+}
